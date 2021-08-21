@@ -35,6 +35,12 @@ public class PrestamosController {
 		return listado;
 	}
 	
+	@GetMapping(value="/Prestamos/Usuario/{usuarioId}", produces = {MediaType.APPLICATION_JSON_VALUE})
+	public List<Prestamo> getUsuarioId(@PathVariable(name="usuarioId") Integer usuarioId){
+		List<Prestamo> listado = prestamoService.findByUsuarioId(usuarioId);
+		return listado;
+	}
+	
 	@PostMapping(value="/Prestamos", produces = {MediaType.APPLICATION_JSON_VALUE})
 	public ResponseEntity<PrestamoResponse> savePrestamo(@RequestBody Prestamo prestamo) {
 		

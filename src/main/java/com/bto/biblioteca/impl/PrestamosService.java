@@ -43,8 +43,11 @@ public class PrestamosService implements IPrestamosService {
 
 	@Override
 	public List<Prestamo> findByUsuarioId(Integer usuarioId) {
-		// TODO Auto-generated method stub
-		return null;
+
+		List<TblPrestamo> lista = prestamoRepository.findAll();
+		List<Prestamo> listadoPrestamos = entityPrestamosUsuarioList(lista, usuarioId);
+
+		return listadoPrestamos;
 	}
 
 	@Override
@@ -93,6 +96,24 @@ public class PrestamosService implements IPrestamosService {
 					ent.getUsuario().getUsuarioId(), ent.getFechaPrestamo());
 
 			listadoPrestamos.add(prestamo);
+		}
+
+
+		return listadoPrestamos;
+	}
+	
+	private List<Prestamo> entityPrestamosUsuarioList(List<TblPrestamo> lista, Integer usuarioId) {
+		
+		List<Prestamo> listadoPrestamos = new ArrayList<>();
+
+		for (TblPrestamo ent : lista) {
+
+			Prestamo prestamo = new Prestamo(ent.getPrestamoId(), ent.getLibro().getLibroId(), 
+					ent.getUsuario().getUsuarioId(), ent.getFechaPrestamo());
+
+			if(prestamo.getUsuarioId().equals(usuarioId)) {
+				listadoPrestamos.add(prestamo);
+			}
 		}
 
 
