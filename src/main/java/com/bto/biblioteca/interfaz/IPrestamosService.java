@@ -9,5 +9,10 @@ public interface IPrestamosService {
 
 	public List<Prestamo> findAll();
 	
+	public List<Prestamo> findByFechaPrestamo(String fechaPrestamo);
+	
+	public List<Prestamo> findByUsuarioId(Integer usuarioId);
+	
 	public PrestamoResponse save(Prestamo prestamo);
+	
 }

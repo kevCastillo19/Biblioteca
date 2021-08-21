@@ -173,7 +173,14 @@ public class LibrosService implements ILibrosService {
 					listadoLibros.add(libro);
 				}
 			}
-		} 
+		} else {
+			for (TblLibro ent : lista) {
+
+				Libro libro = new Libro(ent.getLibroId(), ent.getTitulo(), ent.getAutor(), ent.getEstado());
+				
+				listadoLibros.add(libro);
+			}
+		}
 		return listadoLibros;
 	}
 
