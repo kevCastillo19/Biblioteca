@@ -19,5 +19,5 @@ public interface ILibrosService {
 	
 	public PrestamoResponse update(Libro libro);
 	
-	public PrestamoResponse delete(Libro libro);
+	public PrestamoResponse delete(Integer libroId);
 }

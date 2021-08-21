@@ -12,6 +12,7 @@ import com.bto.biblioteca.dto.PrestamoResponse;
 import com.bto.biblioteca.entity.TblLibro;
 import com.bto.biblioteca.interfaz.ILibrosService;
 import com.bto.biblioteca.repositoy.*;
+import com.sun.tools.javac.comp.Enter;
 
 @Service
 public class LibrosService implements ILibrosService {
@@ -36,6 +37,7 @@ public class LibrosService implements ILibrosService {
 
 	@Override
 	public Libro findById(Integer libroId) {
+
 		Libro result = new Libro();
 
 		Optional<TblLibro> libro = libroRepository.findById(libroId);
@@ -78,14 +80,36 @@ public class LibrosService implements ILibrosService {
 
 	@Override
 	public PrestamoResponse update(Libro libro) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		PrestamoResponse response = new PrestamoResponse();
+		TblLibro ent = libroRepository.findByLibroId(libro.getLibroId());	
+		
+		if(ent != null) {
+			//TblPedido ent = entity.get();
+			ent.setEstado(libro.getEstado());
+			libroRepository.save(ent);
+			response.setCodigoRespuesta(0);
+			response.setMensajeRespuesta("El libro ha sido actualizado");
+			
+		}else {
+			response.setCodigoRespuesta(1);
+			response.setMensajeRespuesta("El libro no existe");
+		}
+	
+		return response;
+		
 	}
 
 	@Override
-	public PrestamoResponse delete(Libro libro) {
-		// TODO Auto-generated method stub
-		return null;
+	public PrestamoResponse delete(Integer libroId) {
+
+		PrestamoResponse response = new PrestamoResponse();
+		libroRepository.deleteById(libroId);
+		
+		response.setCodigoRespuesta(0);
+		response.setMensajeRespuesta("Se elimino Correctamente");
+
+		return response;
 	}
 	
 	public List<Libro> entityListToDtoList(List<TblLibro> lista) {
@@ -102,54 +126,54 @@ public class LibrosService implements ILibrosService {
 		return listadoLibros;
 	}
 	
-	public Libro entityToDto(TblLibro libroId) {
+	public Libro entityToDto(TblLibro libro) {
 		
-		Libro libro = new Libro(libroId.getLibroId(), libroId.getTitulo(), libroId.getAutor(), libroId.getEstado());
+		Libro lib = new Libro(libro.getLibroId(), libro.getTitulo(), libro.getAutor(), libro.getEstado());
 
-		return libro;
+		return lib;
 	}
 	
 	public List<Libro> entityListState(String estado, List<TblLibro> lista) {
 		
 		List<Libro> listadoLibros = new ArrayList<>();
 		
-		if(estado == "Prestamo") {
+		if(estado.toUpperCase().equals("Prestamo".toUpperCase())) {
 			for (TblLibro ent : lista) {
 
 				Libro libro = new Libro(ent.getLibroId(), ent.getTitulo(), ent.getAutor(), ent.getEstado());
 				
-				if(libro.getEstado() == estado) {
+				if(libro.getEstado().equals(estado)) {
 					listadoLibros.add(libro);
 				}
 			}
-		} else if(estado == "Inactivo") {
+		} else if(estado.equals("Inactivo")) {
 			for (TblLibro ent : lista) {
 
 				Libro libro = new Libro(ent.getLibroId(), ent.getTitulo(), ent.getAutor(), ent.getEstado());
 				
-				if(libro.getEstado() == estado) {
+				if(libro.getEstado().equals(estado)) {
 					listadoLibros.add(libro);
 				}
 			}
-		} else if(estado == "Restauracion") {
+		}  else if(estado.equals("Restauracion")) {
 			for (TblLibro ent : lista) {
 
 				Libro libro = new Libro(ent.getLibroId(), ent.getTitulo(), ent.getAutor(), ent.getEstado());
 				
-				if(libro.getEstado() == estado) {
+				if(libro.getEstado().equals(estado)) {
 					listadoLibros.add(libro);
 				}
 			}
-		} else if(estado == "Disponible") {
+		}  else if(estado.equals("Disponible")) {
 			for (TblLibro ent : lista) {
 
 				Libro libro = new Libro(ent.getLibroId(), ent.getTitulo(), ent.getAutor(), ent.getEstado());
 				
-				if(libro.getEstado() == estado) {
+				if(libro.getEstado().equals(estado)) {
 					listadoLibros.add(libro);
 				}
 			}
-		}
+		} 
 		return listadoLibros;
 	}
 
