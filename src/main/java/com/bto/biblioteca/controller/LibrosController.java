@@ -16,9 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.bto.biblioteca.dto.PrestamoResponse;
 import com.bto.biblioteca.dto.Libro;
-import com.bto.biblioteca.dto.Prestamo;
 import com.bto.biblioteca.interfaz.ILibrosService;
-import com.bto.biblioteca.interfaz.IPrestamosService;
 
 @RestController
 public class LibrosController {

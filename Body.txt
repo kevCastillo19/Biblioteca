@@ -19,8 +19,8 @@ CREAR BASE DE DATOS:betheone
 EJECUTAR EL PROYECTO PARA QUE CREE LAS TABLAS DE LAS ENTIDADES.
 REALIZAR LAS INSERCIONES:
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-TblCliente
-INSERT INTO `cliente` (`cliente_id`, `apellido`, `email`, `nombre`, `telefono`) VALUES
+TblUsuario
+INSERT INTO `usuario` (`usuario_id`, `apellido_Usuario`, `email_usuario`, `nombre_usuario`, `telefono_usuario`) VALUES
 (1, 'Castillo', 'kevin@gmail.com', 'Kevin', '71717171'),
 (2, 'Hernandez', 'hector@gmail.com', 'Hector', '72727272'),
 (3, 'Callejas', 'esperanza@gmail.com', 'Esperanza', '73737373'),
@@ -41,9 +41,9 @@ INSERT INTO `libro` (`libro_id`, `autor`, `estado`, `titulo`) VALUES
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 TblPrestamo
 INSERT INTO `prestamo` (`prestamo_id`, `fecha_prestamo`, `libro_id`, `usuario_id`) VALUES 
-('1', '2021-08-22 06:54:17.000000', '8', '1'), 
-('2', '2021-08-22 06:54:17.000000', '9', '2'), 
-('3', '2021-08-22 06:54:17.000000', '10', '1');
+('1', '22-08-2021 20:00', '8', '1'), 
+('2', '22-08-2021 20:00', '9', '2'), 
+('3', '22-08-2021 20:00', '10', '1');
 ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
 ▄▄▄▄▄▄▄▄▄▄▄▄▄▄

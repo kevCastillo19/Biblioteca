@@ -1,7 +1,5 @@
 package com.bto.biblioteca.entity;
 
-import java.util.Date;
-
 import javax.persistence.*;
 
 @Entity
@@ -21,9 +19,9 @@ public class TblPrestamo {
 	private TblUsuario usuario;
 	
 	@Column(name="fechaPrestamo", nullable=false)
-	private Date fechaPrestamo;
+	private String fechaPrestamo;
 
-	public TblPrestamo(Integer prestamoId, TblLibro libro, TblUsuario usuario, Date fechaPrestamo) {
+	public TblPrestamo(Integer prestamoId, TblLibro libro, TblUsuario usuario, String fechaPrestamo) {
 		super();
 		this.prestamoId = prestamoId;
 		this.libro = libro;
@@ -59,11 +57,11 @@ public class TblPrestamo {
 		this.usuario = usuario;
 	}
 
-	public Date getFechaPrestamo() {
+	public String getFechaPrestamo() {
 		return fechaPrestamo;
 	}
 
-	public void setFechaPrestamo(Date fechaPrestamo) {
+	public void setFechaPrestamo(String fechaPrestamo) {
 		this.fechaPrestamo = fechaPrestamo;
 	}
 	

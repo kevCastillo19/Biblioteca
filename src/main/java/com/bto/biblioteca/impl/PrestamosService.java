@@ -1,9 +1,6 @@
 package com.bto.biblioteca.impl;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -52,18 +49,8 @@ public class PrestamosService implements IPrestamosService {
 
 	@Override
 	public List<Prestamo> findByFechaPrestamo(String fechaPrestamo) {
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		
-		Date fecha = null;
-		
-		try {
-			fecha = format.parse(fechaPrestamo);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		
-		
-		List<TblPrestamo> lista = prestamoRepository.findByFechaPrestamo(fecha);
+		List<TblPrestamo> lista = prestamoRepository.findByFechaPrestamo(fechaPrestamo);
 		
 		List<Prestamo> listadoPrestamos= entityPrestamosToDtoList(lista);
 
