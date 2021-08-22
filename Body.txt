@@ -1,0 +1,109 @@
+▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+PRESENTACION
+♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+PROYECTO: BIBLIOTECA BeTheOne
+Kevin Javier Castillo Hernandez
+▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+
+▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+DOCUMENTACION APIs
+♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+http://localhost:7000/swagger-ui/
+▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+
+▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+INSTRUCCIONES MySQL
+♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+MOTOR:MySQL
+CREAR BASE DE DATOS:betheone
+EJECUTAR EL PROYECTO PARA QUE CREE LAS TABLAS DE LAS ENTIDADES.
+REALIZAR LAS INSERCIONES:
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+TblCliente
+INSERT INTO `cliente` (`cliente_id`, `apellido`, `email`, `nombre`, `telefono`) VALUES
+(1, 'Castillo', 'kevin@gmail.com', 'Kevin', '71717171'),
+(2, 'Hernandez', 'hector@gmail.com', 'Hector', '72727272'),
+(3, 'Callejas', 'esperanza@gmail.com', 'Esperanza', '73737373'),
+(4, 'Blanco', 'jazmin@gmail.com', 'Jazmin', '74747474');
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+TblLibros
+INSERT INTO `libro` (`libro_id`, `autor`, `estado`, `titulo`) VALUES 
+('1', 'Dante Alighieri', 'Disponible', 'Divina comedia'), 
+('2', 'Jane Austen', 'Disponible', 'Orgullo y prejuicio'), 
+('3', 'Honoré de Balzac', 'Inactivo', 'Papá Goriot'), 
+('4', 'Hans Christian Andersen', 'Disponible', 'Cuentos infantiles'), 
+('5', 'Giovanni Boccaccio', 'Restauración', 'Decamerón'),
+('6', 'Miguel de Cervantes', 'Disponible', 'Don Quijote de la Mancha'), 
+('7', 'Antón Chéjov', 'Disponible', 'Relatos cortos'), 
+('8', 'Gerver Monterrosa', 'Prestamo', 'Matematica 1'), 
+('9', 'Rudy', 'Prestamo', 'Matematica 2'), 
+('10', 'Gonzalo', 'Prestamo', 'Matematica 3');
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+TblPrestamo
+INSERT INTO `prestamo` (`prestamo_id`, `fecha_prestamo`, `libro_id`, `usuario_id`) VALUES 
+('1', '2021-08-22 06:54:17.000000', '8', '1'), 
+('2', '2021-08-22 06:54:17.000000', '9', '2'), 
+('3', '2021-08-22 06:54:17.000000', '10', '1');
+▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+
+▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+    URIs
+♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+RECURSO: Libros
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+OBTENER TODOS LOS LIBROS:
+GET http://localhost:7000/Libros
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+OBTENER LIBROS POR ID:
+GET http://localhost:7000/Libros/{libroId}
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+OBTENER LIBROS POR ESTADO(Disponible, Prestamo, Inactivo, Restauracion):
+GET http://localhost:7000/Libros/Estado/{estado}
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+REGISTRAR UN NUEVO LIBRO
+POST http://localhost:7000/Libros
+
+JSON BODY: 
+{
+    "autor": "Melvin",
+    "estado": "Disponible",
+    "titulo": "Decamerón"
+}
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+ACTUALIZAR ESTADO DE UN LIBRO
+PUT http://localhost:7000/Libros
+
+JSON BODY: 
+{
+    "libroId": 5, 
+    "autor": "Giovanni Boccaccio",
+    "estado": "Disponible",
+    "titulo": "Spring Boot"
+}
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+ELIMINAR UN LIBRO:
+DELETE http://localhost:7000/Libros/{libroId}
+
+♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+
+RECURSO: PRESTAMOS
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+OBTENER TODOS LOS PRESTAMOS:
+GET http://localhost:7000/Prestamos
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+OBTENER PRESTAMOS POR FECHA:
+GET http://localhost:7000/Prestamos/{fechaPrestamo}
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+OBTENER PRESTAMOS POR USUARIO:
+GET http://localhost:7000/Prestamos/Usuario/{usuarioId}
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+REGISTRAR UN NUEVO PRESTAMO
+POST http://localhost:7000/Prestamos
+
+JSON BODY: 
+{
+    "libroId": 2,
+    "usuarioId": 3,
+    "fechaPrestamo": "2021-08-22T06:00:00.000+00:00"
+}
+▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
