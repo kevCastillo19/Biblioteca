@@ -32,7 +32,7 @@ public class PrestamosService implements IPrestamosService {
 	
 	@Autowired
 	private IUsuarioRepository usuarioRepository;
-	
+		
 	@Override
 	public List<Prestamo> findAll() {
 		List<TblPrestamo> lista = prestamoRepository.findAll(); // SELECT * FROM PEDIDOS;
@@ -76,13 +76,30 @@ public class PrestamosService implements IPrestamosService {
 		
 		Optional<TblLibro> libro = libroRepository.findById(prestamo.getLibroId()); 
 		Optional<TblUsuario> usuario = usuarioRepository.findById(prestamo.getUsuarioId());
+		List<TblPrestamo> lista = prestamoRepository.findAll();
+		
+		List<Prestamo> contUsuario = entityContUsuario(prestamo, usuario, lista);
 		
 		TblPrestamo newPrestamo = new TblPrestamo(prestamo.getPrestamoId(), libro.get(), usuario.get(), prestamo.getFechaPrestamo());
 		
-		newPrestamo = prestamoRepository.save(newPrestamo);
-		
-		response.setCodigoRespuesta(0);
-		response.setMensajeRespuesta("Se agrego Correctamente");
+		if(contUsuario.size() < 3) {
+			if(libro.get().getEstado().equals("Disponible")) {
+				newPrestamo = prestamoRepository.save(newPrestamo);
+				
+				TblLibro ent = libroRepository.findByLibroId(prestamo.getLibroId());
+				ent.setEstado("Prestamo");
+				libroRepository.save(ent);
+				
+				response.setCodigoRespuesta(0);
+				response.setMensajeRespuesta("Se agrego Correctamente");
+			} else {
+				response.setCodigoRespuesta(1);
+				response.setMensajeRespuesta("El libro no esta disponible");
+			}
+		} else {
+			response.setCodigoRespuesta(2);
+			response.setMensajeRespuesta("El usuario ya posee 3 libros");
+		}
 		
 		return response;
 	}
@@ -97,7 +114,6 @@ public class PrestamosService implements IPrestamosService {
 
 			listadoPrestamos.add(prestamo);
 		}
-
 
 		return listadoPrestamos;
 	}
@@ -116,8 +132,24 @@ public class PrestamosService implements IPrestamosService {
 			}
 		}
 
-
 		return listadoPrestamos;
+	}
+	
+	private List<Prestamo> entityContUsuario(Prestamo newPrestamo, Optional<TblUsuario> usuario, List<TblPrestamo> lista) {
+		List<Prestamo> UsuarioL = new ArrayList<>();
+			
+		for (TblPrestamo ent : lista) {
+
+			Prestamo prestamo = new Prestamo(ent.getPrestamoId(), ent.getLibro().getLibroId(), 
+					ent.getUsuario().getUsuarioId(), ent.getFechaPrestamo());
+
+			if(prestamo.getUsuarioId().equals(usuario.get().getUsuarioId()) ) {
+				UsuarioL.add(newPrestamo);
+			}
+		}
+
+
+		return UsuarioL;
 	}
 
 }
