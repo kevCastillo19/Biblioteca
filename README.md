@@ -45,7 +45,7 @@ INSERT INTO `usuario` (`usuario_id`, `apellido_Usuario`, `email_usuario`, `nombr
 (2, 'Hernandez', 'hector@gmail.com', 'Hector', '72727272'),
 (3, 'Callejas', 'esperanza@gmail.com', 'Esperanza', '73737373'),
 (4, 'Blanco', 'jazmin@gmail.com', 'Jazmin', '74747474');
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
 TblLibros
 INSERT INTO `libro` (`libro_id`, `autor`, `estado`, `titulo`) VALUES 
 ('1', 'Dante Alighieri', 'Disponible', 'Divina comedia'), 
@@ -58,7 +58,7 @@ INSERT INTO `libro` (`libro_id`, `autor`, `estado`, `titulo`) VALUES
 ('8', 'Gerver Monterrosa', 'Prestamo', 'Matematica 1'), 
 ('9', 'Rudy', 'Prestamo', 'Matematica 2'), 
 ('10', 'Gonzalo', 'Prestamo', 'Matematica 3');
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
 TblPrestamo
 INSERT INTO `prestamo` (`prestamo_id`, `fecha_prestamo`, `libro_id`, `usuario_id`) VALUES 
 ('1', '22-08-2021 20:00', '8', '1'), 
@@ -68,29 +68,27 @@ INSERT INTO `prestamo` (`prestamo_id`, `fecha_prestamo`, `libro_id`, `usuario_id
 ### URIs ###
 
 **RECURSO: Libros**
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
 OBTENER TODOS LOS LIBROS:
 GET http://localhost:7000/Libros
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
 OBTENER LIBROS POR ID:
 GET http://localhost:7000/Libros/{libroId}
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
 OBTENER LIBROS POR ESTADO(Disponible, Prestamo, Inactivo, Restauracion):
 GET http://localhost:7000/Libros/Estado/{estado}
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
 REGISTRAR UN NUEVO LIBRO
 POST http://localhost:7000/Libros
-
 JSON BODY: 
 {
     "autor": "Melvin",
     "estado": "Disponible",
     "titulo": "Decamerón"
 }
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
 ACTUALIZAR ESTADO DE UN LIBRO
 PUT http://localhost:7000/Libros
-
 JSON BODY: 
 {
     "libroId": 5, 
@@ -98,24 +96,23 @@ JSON BODY:
     "estado": "Disponible",
     "titulo": "Spring Boot"
 }
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
 ELIMINAR UN LIBRO:
 DELETE http://localhost:7000/Libros/{libroId}
 
 **RECURSO: PRESTAMOS**
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
 OBTENER TODOS LOS PRESTAMOS:
 GET http://localhost:7000/Prestamos
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
 OBTENER PRESTAMOS POR FECHA:
 GET http://localhost:7000/Prestamos/{fechaPrestamo}
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
 OBTENER PRESTAMOS POR USUARIO:
 GET http://localhost:7000/Prestamos/Usuario/{usuarioId}
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
 REGISTRAR UN NUEVO PRESTAMO
 POST http://localhost:7000/Prestamos
-
 JSON BODY: 
 {
     "libroId": 2,
