@@ -40,6 +40,7 @@ EJECUTAR EL PROYECTO PARA QUE CREE LAS TABLAS DE LAS ENTIDADES.
 **REALIZAR LAS INSERCIONES:**
 
 TblUsuario
+
 INSERT INTO `usuario` (`usuario_id`, `apellido_Usuario`, `email_usuario`, `nombre_usuario`, `telefono_usuario`) VALUES
 (1, 'Castillo', 'kevin@gmail.com', 'Kevin', '71717171'),
 (2, 'Hernandez', 'hector@gmail.com', 'Hector', '72727272'),
@@ -47,6 +48,7 @@ INSERT INTO `usuario` (`usuario_id`, `apellido_Usuario`, `email_usuario`, `nombr
 (4, 'Blanco', 'jazmin@gmail.com', 'Jazmin', '74747474');
 
 TblLibros
+
 INSERT INTO `libro` (`libro_id`, `autor`, `estado`, `titulo`) VALUES 
 ('1', 'Dante Alighieri', 'Disponible', 'Divina comedia'), 
 ('2', 'Jane Austen', 'Disponible', 'Orgullo y prejuicio'), 
@@ -60,6 +62,7 @@ INSERT INTO `libro` (`libro_id`, `autor`, `estado`, `titulo`) VALUES
 ('10', 'Gonzalo', 'Prestamo', 'Matematica 3');
 
 TblPrestamo
+
 INSERT INTO `prestamo` (`prestamo_id`, `fecha_prestamo`, `libro_id`, `usuario_id`) VALUES 
 ('1', '22-08-2021 20:00', '8', '1'), 
 ('2', '22-08-2021 20:00', '9', '2'), 
@@ -121,4 +124,4 @@ JSON BODY:
 }
 
 ## Agradecimiento ##
-Agradecimiento especial a Mario Rene Arias Artiga, instructor del Modulo de Spring Boot dentro del programa de entrenamiento Be The One
+Agradecimiento especial a Mario Rene Arias Gomez, instructor del Modulo de Spring Boot dentro del programa de entrenamiento Be The One
