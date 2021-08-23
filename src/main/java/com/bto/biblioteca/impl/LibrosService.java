@@ -12,19 +12,12 @@ import com.bto.biblioteca.dto.PrestamoResponse;
 import com.bto.biblioteca.entity.TblLibro;
 import com.bto.biblioteca.interfaz.ILibrosService;
 import com.bto.biblioteca.repositoy.*;
-import com.sun.tools.javac.comp.Enter;
 
 @Service
 public class LibrosService implements ILibrosService {
 	
 	@Autowired
 	private ILibroRepository libroRepository;
-	
-	@Autowired
-	private IPrestamoRepository prestamoRepository;
-	
-	@Autowired
-	private IUsuarioRepository usuarioRepository;
 
 	@Override
 	public List<Libro> findAll() {
@@ -58,6 +51,7 @@ public class LibrosService implements ILibrosService {
 		return librosEstado;
 	}
 
+	//El siguiente metodo se llevo a cabo en la API prestamos
 	@Override
 	public List<Libro> findByUsuario(String usuarioId) {
 		// TODO Auto-generated method stub
