@@ -75,22 +75,22 @@ public class LibrosService implements ILibrosService {
 	@Override
 	public PrestamoResponse update(Libro libro) {
 		
-		PrestamoResponse response = new PrestamoResponse();
-		TblLibro ent = libroRepository.findByLibroId(libro.getLibroId());	
-		
-		if(ent != null) {
-			//TblPedido ent = entity.get();
-			ent.setEstado(libro.getEstado());
-			libroRepository.save(ent);
-			response.setCodigoRespuesta(0);
-			response.setMensajeRespuesta("El libro ha sido actualizado");
-			
-		}else {
-			response.setCodigoRespuesta(1);
-			response.setMensajeRespuesta("El libro no existe");
-		}
+		/*
+		 * PrestamoResponse response = new PrestamoResponse(); TblLibro ent =
+		 * libroRepository.findByLibroId(libro.getLibroId());
+		 * 
+		 * if(ent != null) { //TblPedido ent = entity.get();
+		 * ent.setEstado(libro.getEstado()); libroRepository.save(ent);
+		 * response.setCodigoRespuesta(0);
+		 * response.setMensajeRespuesta("El libro ha sido actualizado");
+		 * 
+		 * }else { response.setCodigoRespuesta(1);
+		 * response.setMensajeRespuesta("El libro no existe");
+		 *
+		*}
+	 */
 	
-		return response;
+		return null;
 		
 	}
 
